@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự Lựa Chọn Của Số Phận - Random Sơ Đồ Lớp 12A06</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f1f5f9;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #cbd5e1;
+            --success: #16a34a;
+            --warning: #d97706;
+            --danger: #dc2626;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .top-header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand h1 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .brand p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .top-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        button {
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background: #15803d;
+        }
+
+        .btn-danger-soft {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+
+        .btn-danger-soft:hover {
+            background: #fecaca;
+        }
+
+        /* Layout chính */
+        .app-container {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1500px;
+            width: 100%;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        /* Sidebar trái */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .panel h2 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        input[type="text"], input[type="number"], select, textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            background: #fff;
+            color: var(--text);
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+            line-height: 1.45;
+        }
+
+        .random-box {
+            background: #eef2ff;
+            border: 1px dashed #818cf8;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .spotlight-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+            min-height: 28px;
+            margin: 6px 0;
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .stat-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .stat-card b {
+            display: block;
+            font-size: 18px;
+            color: var(--text);
+        }
+
+        .stat-card span {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .student-pool {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-height: 170px;
+            overflow-y: auto;
+        }
+
+        .chip {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .chip.assigned {
+            background: #dcfce7;
+            border-color: #86efac;
+            color: #166534;
+        }
+
+        .chip:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Khu vực sơ đồ chính */
+        .main-stage {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .stage-top-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .board-banner {
+            background: #1e293b;
+            color: #fff;
+            padding: 8px 36px;
+            border-radius: 6px;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            display: inline-block;
+            border: 1px solid #94a3b8;
+        }
+
+        .dot.empty { background: #ffffff; }
+        .dot.filled { background: #eff6ff; border-color: #3b82f6; }
+        .dot.disabled { background: #e2e8f0; opacity: 0.65; }
+
+        /* Bố cục 4 tổ giống sơ đồ 12A06 */
+        .room-grid {
+            display: grid;
+            grid-template-columns: 1fr 70px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .wing-col {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .group-box {
+            border: 1.5px solid #94a3b8;
+            border-radius: 10px;
+            padding: 10px;
+            background: #fafbfc;
+        }
+
+        .group-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .desk-table {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .desk-table:last-child {
+            margin-bottom: 0;
+        }
+
+        .seat-cell {
+            min-height: 66px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 7px;
+            background: #fff;
+            padding: 5px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: 0.15s;
+            user-select: none;
+        }
+
+        .seat-cell:hover {
+            border-color: var(--primary);
+            background: #f8fafc;
+        }
+
+        .seat-cell.filled {
+            background: #eff6ff;
+            border-color: #3b82f6;
+        }
+
+        .seat-cell.selected {
+            outline: 3px solid var(--primary);
+            background: #e0e7ff;
+            z-index: 2;
+        }
+
+        .seat-cell.highlight-anim {
+            animation: popSeat 0.5s ease;
+            outline: 3px solid var(--success);
+            background: #dcfce7;
+        }
+
+        .seat-cell.disabled {
+            background: #e2e8f0;
+            border-style: dashed;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        @keyframes popSeat {
+            0% { transform: scale(0.92); }
+            60% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+
+        .s-name {
+            font-size: 12.5px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .s-meta {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .s-role {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--danger);
+            margin-top: 2px;
+        }
+
+        .seat-toggle-btn {
+            position: absolute;
+            top: 2px;
+            right: 3px;
+            font-size: 10px;
+            line-height: 1;
+            padding: 1px 3px;
+            background: transparent;
+            color: #94a3b8;
+        }
+
+        .seat-toggle-btn:hover {
+            color: var(--danger);
+        }
+
+        .center-aisle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: 40px 0;
+            gap: 30px;
+        }
+
+        .back-banner {
+            text-align: center;
+            padding: 8px;
+            border-radius: 8px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        @media (max-width: 1024px) {
+            .app-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .top-header, .sidebar, .seat-toggle-btn {
+                display: none !important;
+            }
+            .app-container {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+            .main-stage {
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="brand">
+            <h1>🎲 Sự Lựa Chọn Của Số Phận</h1>
+            <p id="classSubtitle">GVCN: Nguyễn Thị Phương Lan - Lớp 12A06 (Không cần đăng nhập Google)</p>
+        </div>
+        <div class="top-actions">
+            <button class="btn-secondary" onclick="clearAllSeats()">🧹 Xóa chỗ (Giữ danh sách)</button>
+            <button class="btn-secondary" onclick="window.print()">🖨️ In sơ đồ</button>
+            <button class="btn-danger-soft" onclick="restore12A06Default()">↺ Nạp lại Lớp 12A06 gốc</button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Cột trái: Tạo lớp & Random -->
+        <aside class="sidebar">
+            <div class="panel">
+                <h2>1. Thông tin lớp & Danh sách</h2>
+                <div class="form-row">
+                    <div>
+                        <label>Tên lớp</label>
+                        <input type="text" id="classNameInput" value="12A06">
+                    </div>
+                    <div>
+                        <label>GVCN</label>
+                        <input type="text" id="teacherInput" value="Nguyễn Thị Phương Lan">
+                    </div>
+                </div>
+                <label>Danh sách học sinh (mỗi dòng 1 tên, có thể ghi kèm (STT) và chức vụ):</label>
+                <textarea id="studentListInput"></textarea>
+                <div class="btn-grid">
+                    <button class="btn-primary" onclick="createClassroom(false)">✨ Tạo / Cập nhật sơ đồ</button>
+                    <button class="btn-secondary" onclick="createClassroom(true)">🆕 Tạo lớp trống mới</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>2. Random vị trí ngồi</h2>
+                <div class="random-box">
+                    <div style="font-size: 12px; color: #4338ca; font-weight: 600;">Học sinh đang bốc thăm</div>
+                    <div class="spotlight-name" id="spotlightName">Sẵn sàng</div>
+                    <div style="font-size: 11px; color: var(--muted);" id="spotlightSub">Chọn học sinh hoặc bấm random</div>
+                </div>
+
+                <label>Chọn thủ công 1 học sinh chưa có chỗ:</label>
+                <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+                    <select id="unassignedSelect">
+                        <option value="">— Chọn tên học sinh —</option>
+                    </select>
+                    <button class="btn-success" onclick="randomSingleForSelected()">Xếp</button>
+                </div>
+
+                <div class="btn-grid">
+                    <button class="btn-primary" onclick="randomOneByOne()">🎯 Bốc 1 người ngẫu nhiên</button>
+                    <button class="btn-success" onclick="randomAllRemaining()">⚡ Random tất cả</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>3. Thống kê & Danh sách</h2>
+                <div class="stats-bar">
+                    <div class="stat-card">
+                        <b id="statAssigned">0</b>
+                        <span>Đã có chỗ</span>
+                    </div>
+                    <div class="stat-card">
+                        <b id="statRemaining">0</b>
+                        <span>Chưa random</span>
+                    </div>
+                </div>
+                <div class="student-pool" id="studentChips"></div>
+                <p style="font-size: 11px; color: var(--muted); margin-top: 8px;">
+                    Mẹo: Kéo thả hoặc bấm 2 ghế để đổi chỗ. Bấm dấu <b>×</b> góc trên ghế để bật/tắt ghế dự phòng.
+                </p>
+            </div>
+        </aside>
+
+        <!-- Khu vực phải: Sơ đồ lớp -->
+        <main class="main-stage">
+            <div class="stage-top-bar">
+                <span>ĐẦU LỚP</span>
+                <div class="board-banner">BẢNG LỚP</div>
+                <span>BỤC / BÀN GIÁO VIÊN</span>
+            </div>
+
+            <div class="legend">
+                <span><i class="dot empty"></i>Ghế trống</span>
+                <span><i class="dot filled"></i>Đã có học sinh</span>
+                <span><i class="dot disabled"></i>Ghế vô hiệu hóa</span>
+            </div>
+
+            <div class="room-grid">
+                <div class="wing-col">
+                    <div class="group-box" id="ui-group-3"></div>
+                    <div class="group-box" id="ui-group-4"></div>
+                </div>
+
+                <div class="center-aisle">
+                    <span>LỐI ĐI GIỮA</span>
+                    <span>LỐI ĐI GIỮA</span>
+                </div>
+
+                <div class="wing-col">
+                    <div class="group-box" id="ui-group-2"></div>
+                    <div class="group-box" id="ui-group-1"></div>
+                </div>
+            </div>
+
+            <div class="back-banner">CUỐI LỚP</div>
+        </main>
+    </div>
+
+    <script>
+        // Danh sách 47 học sinh lớp 12A06 theo sơ đồ gốc
+        const CLASS_12A06_STUDENTS = [
+            { name: "Diên Khánh", id: "19", role: "", presetGroup: 3 },
+            { name: "Hoàng Phát", id: "32", role: "", presetGroup: 3 },
+            { name: "Kim Ngân", id: "28", role: "", presetGroup: 3 },
+            { name: "Tâm Như", id: "31", role: "TỔ TRƯỞNG", presetGroup: 3 },
+            { name: "Công Tiến", id: "40", role: "", presetGroup: 3 },
+            { name: "Bảo Uyên", id: "44", role: "", presetGroup: 3 },
+            { name: "Thanh Trúc", id: "43", role: "", presetGroup: 3 },
+            { name: "Văn Huy", id: "17", role: "LỚP TRƯỞNG", presetGroup: 3 },
+            { name: "Bảo Nam", id: "27", role: "", presetGroup: 3 },
+            { name: "Minh Khiêm", id: "20", role: "", presetGroup: 3 },
+            { name: "Diễm My", id: "26", role: "", presetGroup: 3 },
+            { name: "Hà Anh", id: "03", role: "", presetGroup: 3 },
+
+            { name: "Quốc Sang", id: "35", role: "", presetGroup: 4 },
+            { name: "Trung Hải", id: "14", role: "", presetGroup: 4 },
+            { name: "Tùng Anh", id: "07", role: "", presetGroup: 4 },
+            { name: "Khải Luân", id: "24", role: "", presetGroup: 4 },
+            { name: "Thanh Hoàng", id: "16", role: "", presetGroup: 4 },
+            { name: "Phương Anh", id: "05", role: "", presetGroup: 4 },
+            { name: "Thanh Thư", id: "39", role: "TỔ TRƯỞNG", presetGroup: 4 },
+            { name: "Tiểu Yến", id: "47", role: "", presetGroup: 4 },
+            { name: "Trúc Nghi", id: "30", role: "", presetGroup: 4 },
+            { name: "Hiếu Đồng", id: "13", role: "", presetGroup: 4 },
+            { name: "Mai Châu", id: "10", role: "", presetGroup: 4 },
+            { name: "Anh Thư", id: "38", role: "", presetGroup: 4 },
+
+            { name: "Quốc An", id: "01", role: "", presetGroup: 2 },
+            { name: "Hoàng Kiệt", id: "22", role: "", presetGroup: 2 },
+            { name: "Võ Kiệt", id: "23", role: "", presetGroup: 2 },
+            { name: "Duy Hưng", id: "18", role: "", presetGroup: 2 },
+            { name: "Minh Châu", id: "11", role: "", presetGroup: 2 },
+            { name: "Ngọc Phụng", id: "33", role: "TỔ TRƯỞNG", presetGroup: 2 },
+            { name: "Thanh Thủy", id: "37", role: "", presetGroup: 2 },
+            { name: "Tấn Dũng", id: "12", role: "", presetGroup: 2 },
+            { name: "Hùng Mạnh", id: "25", role: "", presetGroup: 2 },
+            { name: "Gia Yên", id: "46", role: "", presetGroup: 2 },
+            { name: "Kiều Vy", id: "45", role: "", presetGroup: 2 },
+
+            { name: "Thái Bảo", id: "08", role: "", presetGroup: 1 },
+            { name: "Gia Hân", id: "15", role: "TỔ TRƯỞNG", presetGroup: 1 },
+            { name: "Bảo Anh", id: "04", role: "", presetGroup: 1 },
+            { name: "Anh Khoa", id: "21", role: "", presetGroup: 1 },
+            { name: "Gia Bảo", id: "09", role: "", presetGroup: 1 },
+            { name: "Ngọc Trân", id: "42", role: "", presetGroup: 1 },
+            { name: "Quỳnh Trâm", id: "41", role: "LỚP PHÓ", presetGroup: 1 },
+            { name: "Tuấn Anh", id: "02", role: "", presetGroup: 1 },
+            { name: "Văn Anh", id: "06", role: "", presetGroup: 1 },
+            { name: "Như Quỳnh", id: "34", role: "", presetGroup: 1 },
+            { name: "Bảo Nghi", id: "29", role: "", presetGroup: 1 },
+            { name: "An Sơn", id: "36", role: "", presetGroup: 1 }
+        ];
+
+        const STORAGE_KEY = "random_sodo_no_login_v1";
+
+        function buildDefaultState() {
+            const seats = Array.from({ length: 48 }, (_, idx) => ({
+                index: idx,
+                group: idx < 12 ? 3 : idx < 24 ? 4 : idx < 36 ? 2 : 1,
+                student: null,
+                disabled: false
+            }));
+
+            CLASS_12A06_STUDENTS.forEach((st, i) => {
+                // Ô thứ 31 (index 31) để trống giống sơ đồ gốc
+                const targetIdx = i >= 31 ? i + 1 : i;
+                seats[targetIdx].student = { ...st, uid: "hs_" + i };
+            });
+
+            return {
+                className: "12A06",
+                teacher: "Nguyễn Thị Phương Lan",
+                students: CLASS_12A06_STUDENTS.map((st, i) => ({ ...st, uid: "hs_" + i })),
+                seats
+            };
+        }
+
+        let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || buildDefaultState();
+        let selectedSeatIdx = null;
+        let draggedSeatIdx = null;
+        let lastHighlightedIdx = null;
+
+        function saveState() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        function formatTextareaFromStudents() {
+            document.getElementById("studentListInput").value = state.students
+                .map(s => `${s.name}${s.id ? " (" + s.id + ")" : ""}${s.role ? " - " + s.role : ""}`)
+                .join("\n");
+        }
+
+        function parseLineToStudent(line, idx) {
+            let clean = line.trim();
+            if (!clean) return null;
+
+            let role = "";
+            const roleMatch = clean.match(/\s*-\s*(LỚP TRƯỞNG|LỚP PHÓ|TỔ TRƯỞNG)\s*$/i);
+            if (roleMatch) {
+                role = roleMatch[1].toUpperCase();
+                clean = clean.replace(roleMatch[0], "").trim();
+            }
+
+            let id = "";
+            const idMatch = clean.match(/\(([^)]+)\)\s*$/);
+            if (idMatch) {
+                id = idMatch[1].trim();
+                clean = clean.replace(idMatch[0], "").trim();
+            }
+
+            return {
+                uid: "hs_" + idx + "_" + Date.now().toString(36),
+                name: clean,
+                id,
+                role
+            };
+        }
+
+        function createClassroom(startEmptySeats) {
+            const className = document.getElementById("classNameInput").value.trim() || "Lớp mới";
+            const teacher = document.getElementById("teacherInput").value.trim() || "Chưa cập nhật";
+            const lines = document.getElementById("studentListInput").value.split("\n");
+            const parsedStudents = lines
+                .map((l, i) => parseLineToStudent(l, i))
+                .filter(Boolean);
+
+            const totalSeatsNeeded = Math.max(48, Math.ceil(parsedStudents.length / 4) * 4);
+            const newSeats = Array.from({ length: totalSeatsNeeded }, (_, idx) => ({
+                index: idx,
+                group: (Math.floor(idx / 12) % 4) + 1,
+                student: null,
+                disabled: false
+            }));
+
+            if (!startEmptySeats) {
+                parsedStudents.forEach((st, i) => {
+                    if (newSeats[i]) newSeats[i].student = st;
+                });
+            }
+
+            state = {
+                className,
+                teacher,
+                students: parsedStudents,
+                seats: newSeats
+            };
+            selectedSeatIdx = null;
+            lastHighlightedIdx = null;
+            saveState();
+            renderAll();
+        }
+
+        function clearAllSeats() {
+            if (!confirm("Xóa toàn bộ học sinh khỏi ghế để random lại từ đầu?")) return;
+            state.seats.forEach(seat => {
+                seat.student = null;
+            });
+            selectedSeatIdx = null;
+            lastHighlightedIdx = null;
+            document.getElementById("spotlightName").textContent = "Đã dọn ghế";
+            document.getElementById("spotlightSub").textContent = "Hãy bấm Bốc 1 người hoặc Random tất cả";
+            saveState();
+            renderAll();
+        }
+
+        function restore12A06Default() {
+            if (!confirm("Khôi phục lại danh sách và sơ đồ gốc lớp 12A06?")) return;
+            state = buildDefaultState();
+            selectedSeatIdx = null;
+            lastHighlightedIdx = null;
+            saveState();
+            renderAll();
+        }
+
+        function getAssignedUids() {
+            const set = new Set();
+            state.seats.forEach(s => {
+                if (!s.disabled && s.student) set.add(s.student.uid);
+            });
+            return set;
+        }
+
+        function getUnassignedStudents() {
+            const assigned = getAssignedUids();
+            return state.students.filter(st => !assigned.has(st.uid));
+        }
+
+        function getEmptyActiveSeats() {
+            return state.seats.filter(s => !s.disabled && !s.student);
+        }
+
+        function assignStudentToSeat(student, seatIndex) {
+            // Nếu học sinh đã ngồi ở ghế khác thì xóa ghế cũ
+            state.seats.forEach(s => {
+                if (s.student && s.student.uid === student.uid) {
+                    s.student = null;
+                }
+            });
+            state.seats[seatIndex].student = student;
+            lastHighlightedIdx = seatIndex;
+            document.getElementById("spotlightName").textContent = `${student.name}${student.id ? " (" + student.id + ")" : ""}`;
+            document.getElementById("spotlightSub").textContent = `Đã xếp vào Tổ ${state.seats[seatIndex].group} - Ghế #${seatIndex + 1}`;
+        }
+
+        function randomSingleForSelected() {
+            const selVal = document.getElementById("unassignedSelect").value;
+            if (!selVal) {
+                alert("Vui lòng chọn một học sinh chưa có chỗ.");
+                return;
+            }
+            const student = state.students.find(s => s.uid === selVal);
+            const emptySeats = getEmptyActiveSeats();
+            if (!student || emptySeats.length === 0) {
+                alert("Không còn ghế trống khả dụng!");
+                return;
+            }
+            const randomSeat = emptySeats[Math.floor(Math.random() * emptySeats.length)];
+            assignStudentToSeat(student, randomSeat.index);
+            saveState();
+            renderAll();
+        }
+
+        function randomOneByOne() {
+            const unassigned = getUnassignedStudents();
+            const emptySeats = getEmptyActiveSeats();
+            if (unassigned.length === 0) {
+                alert("Tất cả học sinh đã có chỗ ngồi!");
+                return;
+            }
+            if (emptySeats.length === 0) {
+                alert("Không còn ghế trống khả dụng!");
+                return;
+            }
+            const chosenStudent = unassigned[Math.floor(Math.random() * unassigned.length)];
+            const chosenSeat = emptySeats[Math.floor(Math.random() * emptySeats.length)];
+            assignStudentToSeat(chosenStudent, chosenSeat.index);
+            saveState();
+            renderAll();
+        }
+
+        function randomAllRemaining() {
+            const unassigned = [...getUnassignedStudents()];
+            const emptySeats = [...getEmptyActiveSeats()];
+            if (unassigned.length === 0) {
+                alert("Tất cả học sinh đã có chỗ ngồi!");
+                return;
+            }
+            if (emptySeats.length < unassigned.length) {
+                alert(`Còn ${unassigned.length} học sinh nhưng chỉ còn ${emptySeats.length} ghế trống. Hãy bật thêm ghế hoặc xóa bớt chỗ!`);
+                return;
+            }
+
+            // Fisher-Yates shuffle cho danh sách học sinh và ghế trống
+            for (let i = unassigned.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [unassigned[i], unassigned[j]] = [unassigned[j], unassigned[i]];
+            }
+            for (let i = emptySeats.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [emptySeats[i], emptySeats[j]] = [emptySeats[j], emptySeats[i]];
+            }
+
+            unassigned.forEach((st, idx) => {
+                emptySeats[idx].student = st;
+            });
+
+            document.getElementById("spotlightName").textContent = `Đã xếp ${unassigned.length} học sinh`;
+            document.getElementById("spotlightSub").textContent = "Hoàn tất random ngẫu nhiên!";
+            saveState();
+            renderAll();
+        }
+
+        function swapSeats(idxA, idxB) {
+            if (idxA === idxB) return;
+            const seatA = state.seats[idxA];
+            const seatB = state.seats[idxB];
+            if (seatA.disabled || seatB.disabled) return;
+
+            const temp = seatA.student;
+            seatA.student = seatB.student;
+            seatB.student = temp;
+            saveState();
+            renderAll();
+        }
+
+        function handleSeatClick(idx) {
+            const seat = state.seats[idx];
+            if (seat.disabled) return;
+
+            if (selectedSeatIdx === null) {
+                selectedSeatIdx = idx;
+            } else if (selectedSeatIdx === idx) {
+                selectedSeatIdx = null;
+            } else {
+                swapSeats(selectedSeatIdx, idx);
+                selectedSeatIdx = null;
+            }
+            renderSeats();
+        }
+
+        function toggleSeatDisabled(e, idx) {
+            e.stopPropagation();
+            const seat = state.seats[idx];
+            seat.disabled = !seat.disabled;
+            if (seat.disabled) {
+                seat.student = null;
+            }
+            if (selectedSeatIdx === idx) selectedSeatIdx = null;
+            saveState();
+            renderAll();
+        }
+
+        function renderSeats() {
+            const groupMap = {
+                3: { el: document.getElementById("ui-group-3"), label: "TỔ 3", start: 0 },
+                4: { el: document.getElementById("ui-group-4"), label: "TỔ 4", start: 12 },
+                2: { el: document.getElementById("ui-group-2"), label: "TỔ 2", start: 24 },
+                1: { el: document.getElementById("ui-group-1"), label: "TỔ 1", start: 36 }
+            };
+
+            Object.values(groupMap).forEach(g => {
+                g.el.innerHTML = `<div class="group-title">${g.label}</div>`;
+                const groupSeats = state.seats.slice(g.start, g.start + 12);
+
+                for (let row = 0; row < 3; row++) {
+                    const rowDiv = document.createElement("div");
+                    rowDiv.className = "desk-table";
+
+                    for (let col = 0; col < 4; col++) {
+                        const seat = groupSeats[row * 4 + col];
+                        if (!seat) continue;
+
+                        const cell = document.createElement("div");
+                        cell.className = "seat-cell";
+                        if (seat.disabled) cell.classList.add("disabled");
+                        else if (seat.student) cell.classList.add("filled");
+                        if (selectedSeatIdx === seat.index) cell.classList.add("selected");
+                        if (lastHighlightedIdx === seat.index) cell.classList.add("highlight-anim");
+
+                        cell.draggable = !seat.disabled && Boolean(seat.student);
+
+                        const toggleBtn = document.createElement("button");
+                        toggleBtn.className = "seat-toggle-btn";
+                        toggleBtn.title = seat.disabled ? "Bật ghế" : "Vô hiệu hóa ghế";
+                        toggleBtn.textContent = seat.disabled ? "+" : "×";
+                        toggleBtn.onclick = (ev) => toggleSeatDisabled(ev, seat.index);
+                        cell.appendChild(toggleBtn);
+
+                        const content = document.createElement("div");
+                        if (seat.disabled) {
+                            content.innerHTML = `<div class="s-meta">Trống / Tắt</div>`;
+                        } else if (seat.student) {
+                            content.innerHTML = `
+                                <div class="s-name">${seat.student.name}</div>
+                                ${seat.student.id ? `<div class="s-meta">(${seat.student.id})</div>` : ""}
+                                ${seat.student.role ? `<div class="s-role">${seat.student.role}</div>` : ""}
+                            `;
+                        } else {
+                            content.innerHTML = `<div class="s-meta">Ghế trống</div>`;
+                        }
+                        cell.appendChild(content);
+
+                        cell.addEventListener("click", () => handleSeatClick(seat.index));
+
+                        cell.addEventListener("dragstart", () => {
+                            draggedSeatIdx = seat.index;
+                        });
+
+                        cell.addEventListener("dragover", (ev) => {
+                            if (!seat.disabled) ev.preventDefault();
+                        });
+
+                        cell.addEventListener("drop", (ev) => {
+                            ev.preventDefault();
+                            if (draggedSeatIdx !== null && !seat.disabled) {
+                                swapSeats(draggedSeatIdx, seat.index);
+                                draggedSeatIdx = null;
+                                selectedSeatIdx = null;
+                            }
+                        });
+
+                        rowDiv.appendChild(cell);
+                    }
+                    g.el.appendChild(rowDiv);
+                }
+            });
+
+            lastHighlightedIdx = null;
+        }
+
+        function renderSidebarStats() {
+            document.getElementById("classSubtitle").textContent =
+                `GVCN: ${state.teacher} - Lớp ${state.className} (Không cần đăng nhập Google)`;
+            document.getElementById("classNameInput").value = state.className;
+            document.getElementById("teacherInput").value = state.teacher;
+
+            const assignedSet = getAssignedUids();
+            const unassigned = getUnassignedStudents();
+
+            document.getElementById("statAssigned").textContent = assignedSet.size;
+            document.getElementById("statRemaining").textContent = unassigned.length;
+
+            const selectEl = document.getElementById("unassignedSelect");
+            selectEl.innerHTML = `<option value="">— Chọn tên học sinh (${unassigned.length}) —</option>`;
+            unassigned.forEach(st => {
+                const opt = document.createElement("option");
+                opt.value = st.uid;
+                opt.textContent = `${st.name}${st.id ? " (" + st.id + ")" : ""}`;
+                selectEl.appendChild(opt);
+            });
+
+            const chipsEl = document.getElementById("studentChips");
+            chipsEl.innerHTML = "";
+            state.students.forEach(st => {
+                const isAssigned = assignedSet.has(st.uid);
+                const chip = document.createElement("span");
+                chip.className = "chip" + (isAssigned ? " assigned" : "");
+                chip.textContent = `${st.name}${st.id ? " (" + st.id + ")" : ""}`;
+                chip.title = isAssigned ? "Đã có chỗ - bấm để highlight ghế" : "Chưa có chỗ - bấm để xếp ngay";
+                chip.onclick = () => {
+                    const foundSeat = state.seats.find(s => !s.disabled && s.student && s.student.uid === st.uid);
+                    if (foundSeat) {
+                        selectedSeatIdx = foundSeat.index;
+                        lastHighlightedIdx = foundSeat.index;
+                        renderSeats();
+                    } else {
+                        const emptySeats = getEmptyActiveSeats();
+                        if (emptySeats.length > 0) {
+                            const randSeat = emptySeats[Math.floor(Math.random() * emptySeats.length)];
+                            assignStudentToSeat(st, randSeat.index);
+                            saveState();
+                            renderAll();
+                        }
+                    }
+                };
+                chipsEl.appendChild(chip);
+            });
+        }
+
+        function renderAll() {
+            renderSidebarStats();
+            renderSeats();
+        }
+
+        // Khởi tạo lần đầu
+        formatTextareaFromStudents();
+        renderAll();
+    </script>
+</body>
+</html>
